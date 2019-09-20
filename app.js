@@ -1,4 +1,4 @@
-// Book Class: represents a book
+// -------------- BOOK CLASS: REPRESENTS A BOOK ------------
 
 class Book {
     constructor(title, author, isbn) {
@@ -8,7 +8,7 @@ class Book {
     }
 }
 
-//UI Class: handle UI tasks
+// --------------- UI CLASS: HANDLES UI TASKS -------------- 
 
 class UI {
     static displayBooks() {
@@ -35,7 +35,6 @@ class UI {
     //this addBookToList method will create a row to put into tbody
     static addBookToList(book) {
         const list = document.querySelector('#book-list');
-        console.log('book list');
         //create a table row element, which has title, author, isbn, and delete button
         const row = document.createElement('tr');
 
@@ -53,14 +52,33 @@ class UI {
     }
 }
 
-// Store Class: Handles storage
+//---------- STORE CLASS: HANDLES STORAGE-------------
 
-// Event: Display books
-
+// ---------- EVENT: DISPLAY BOOKS ------------
 //when the window has loaded, 
 // add the content we manually added in the UI
 document.addEventListener('DOMContentLoaded', UI.displayBooks)
 
-//Event: Add a book
+//----------EVENT : ADD A BOOK -------------
 
-// Event: Remove a book
+// collect data from the form
+//listen to a submit on the form
+console.log(document.querySelector('#book-form'))
+// document.querySelector('#book-form').addEventListener('submit', (e)=> 
+// {
+//     // //prevent the window from reloading during a submit
+//     e.preventDefault();
+//     // // get form values
+//     // const title = document.querySelector('#title').value
+//     // const author = document.querySelector('#author').value
+//     // const isbn = document.querySelector('#isbn').value
+
+//     // // create a new instance (instantiating) of a book
+//     // const book = new Book(title, author, isbn);
+
+    
+// });
+
+// call add to list method
+
+// ------------ EVENT: REMOVE A BOOK -------------
