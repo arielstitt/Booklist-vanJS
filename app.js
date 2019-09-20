@@ -51,8 +51,8 @@ class UI {
         list.appendChild(row);
     }
 
-    static deleteBook(el){
-        if(el.classList.contains('delete')){
+    static deleteBook(el) {
+        if (el.classList.contains('delete')) {
             el.parentElement.parentElement.remove();
         }
     }
@@ -85,20 +85,22 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     const author = document.querySelector('#author').value
     const isbn = document.querySelector('#isbn').value
 
+    //---------- VALIDATE ----------
+    if (title === '' || author === '' || isbn === '') {
+        alert('please fill in all fields')
+    } else {
+        const book = new Book(title, author, isbn);
+
+        //add book to UI
+        UI.addBookToList(book);
+
+        //clear fields 
+        UI.clearFields()
+    }
     // create a new instance (instantiating) of a book
-    const book = new Book(title, author, isbn);
 
-    //add book to UI
-    UI.addBookToList(book);
-
-    //delete book
-
-
-    //clear fields 
-     UI.clearFields()
 });
 
-// call add to list method
 
 // ------------ EVENT: REMOVE A BOOK ------------- // 
 
