@@ -50,6 +50,13 @@ class UI {
         // add the row to the list (append)
         list.appendChild(row);
     }
+    static clearFields() {
+        //grab each field in the form and clear it
+        // grab the id of the field and set to an empty string
+        document.querySelector('#title').value = '';
+        document.querySelector('#author').value = '';
+        document.querySelector('#isbn').value = '';
+    }
 }
 
 //---------- STORE CLASS: HANDLES STORAGE-------------
@@ -63,21 +70,24 @@ document.addEventListener('DOMContentLoaded', UI.displayBooks)
 
 // collect data from the form
 //listen to a submit on the form
-console.log(document.querySelector('#book-form'))
-// document.querySelector('#book-form').addEventListener('submit', (e)=> 
-// {
+document.querySelector('#book-form').addEventListener('submit', (e)=> 
+{
 //     // //prevent the window from reloading during a submit
-//     e.preventDefault();
-//     // // get form values
-//     // const title = document.querySelector('#title').value
-//     // const author = document.querySelector('#author').value
-//     // const isbn = document.querySelector('#isbn').value
+    e.preventDefault();
+    // get form values
+    const title = document.querySelector('#title').value
+    const author = document.querySelector('#author').value
+    const isbn = document.querySelector('#isbn').value
 
-//     // // create a new instance (instantiating) of a book
-//     // const book = new Book(title, author, isbn);
+    // create a new instance (instantiating) of a book
+    const book = new Book(title, author, isbn);
 
-    
-// });
+    //add book to UI
+    UI.addBookToList(book);
+
+    //clear fields 
+    UI.clearFields()
+});
 
 // call add to list method
 
