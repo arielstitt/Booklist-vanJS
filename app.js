@@ -1,4 +1,5 @@
 // Book Class: represents a book
+console.log('linked!')
 class Book {
     constructor(title, author, isbn) {
         this.title = title;
@@ -33,13 +34,32 @@ class UI {
     }
     //this addBookToList method will create a row to put into tbody
     static addBookToList(book) {
+
         const list = document.querySelector('#book-list');
+        //create a table row element, which has title, author, isbn, and delete button
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+        <td>${book.title}</td>
+        <td>${book.author}</td>
+        <td>${book.isbn}</td>
+        <td>
+            <a href='#' 
+            class='btn btn-danger btn-sm delete'> X </a>'
+        </td>
+        `;
+        // add the row to the list (append)
+        list.appendChild(row)
     }
 }
 
 // Store Class: Handles storage
 
 // Event: Display books
+
+//when the window has loaded, 
+// add the content we manually added in the UI
+document.addEventListener('DOMContentLoaded', UI.displayBooks)
 
 //Event: Add a book
 
