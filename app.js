@@ -55,7 +55,20 @@ class UI {
         if (el.classList.contains('delete')) {
             el.parentElement.parentElement.remove();
         }
-    }
+    } 
+
+    static showAlert(message, className){
+        //build div from scratch
+        //insert into UI
+        const div = document.createElement('div')
+        div.className = `alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        //parent element
+        const container = document.querySelector('.container');
+        const form = document. querySelector('#book-form');
+        //insert div before the form
+        container.insertBefore(div, form);
+    } 
 
     static clearFields() {
         //grab each field in the form and clear it
@@ -78,7 +91,7 @@ document.addEventListener('DOMContentLoaded', UI.displayBooks)
 // collect data from the form
 //listen to a submit on the form
 document.querySelector('#book-form').addEventListener('submit', (e) => {
-    //     // //prevent the window from reloading during a submit
+    //prevent the window from reloading during a submit
     e.preventDefault();
     // get form values
     const title = document.querySelector('#title').value
@@ -87,8 +100,9 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
     //---------- VALIDATE ----------
     if (title === '' || author === '' || isbn === '') {
-        alert('please fill in all fields')
+        UI.showAlert('Please fill in all fields.', 'danger')
     } else {
+        // create a new instance (instantiating) of a book
         const book = new Book(title, author, isbn);
 
         //add book to UI
@@ -96,8 +110,7 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
         //clear fields 
         UI.clearFields()
-    }
-    // create a new instance (instantiating) of a book
+    } 
 
 });
 

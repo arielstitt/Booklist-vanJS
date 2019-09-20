@@ -13,3 +13,5 @@ event.target ->
 - instantiating a Class
 
 - Event Propogation
+
+- Textnode
