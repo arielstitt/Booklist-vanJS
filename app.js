@@ -1,5 +1,5 @@
 // Book Class: represents a book
-console.log('linked!')
+
 class Book {
     constructor(title, author, isbn) {
         this.title = title;
@@ -11,7 +11,7 @@ class Book {
 //UI Class: handle UI tasks
 
 class UI {
-    static diplayBooks(){
+    static displayBooks() {
         const StoredBooks = [
             {
                 title: 'Book One',
@@ -30,12 +30,12 @@ class UI {
 
         //pass the parameter 'book' in the method so that it can be used 
         //in the addBookToList method
-        books.forEach((book)=>{UI.addBookToList(book)})
+        books.forEach((book) => UI.addBookToList(book))
     }
     //this addBookToList method will create a row to put into tbody
     static addBookToList(book) {
-
         const list = document.querySelector('#book-list');
+        console.log('book list');
         //create a table row element, which has title, author, isbn, and delete button
         const row = document.createElement('tr');
 
@@ -44,12 +44,12 @@ class UI {
         <td>${book.author}</td>
         <td>${book.isbn}</td>
         <td>
-            <a href='#' 
-            class='btn btn-danger btn-sm delete'> X </a>'
+        <a href='#' class='btn btn-danger btn-sm delete'> X </a>
         </td>
         `;
+
         // add the row to the list (append)
-        list.appendChild(row)
+        list.appendChild(row);
     }
 }
 
