@@ -15,3 +15,8 @@ event.target ->
 - Event Propogation
 
 - Textnode
+
+- Local Storage
+
+    JSON.parse()
+    JSON.stringify()
