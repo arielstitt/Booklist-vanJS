@@ -6,6 +6,10 @@ Source: [What is a Static Method?](chortle.ccsu.edu)
 
 - Events
 
+event.target -> 
+
 - Value
 
 - instantiating a Class
+
+- Event Propogation

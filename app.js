@@ -50,6 +50,13 @@ class UI {
         // add the row to the list (append)
         list.appendChild(row);
     }
+
+    static deleteBook(el){
+        if(el.classList.contains('delete')){
+            el.parentElement.parentElement.remove();
+        }
+    }
+
     static clearFields() {
         //grab each field in the form and clear it
         // grab the id of the field and set to an empty string
@@ -70,9 +77,8 @@ document.addEventListener('DOMContentLoaded', UI.displayBooks)
 
 // collect data from the form
 //listen to a submit on the form
-document.querySelector('#book-form').addEventListener('submit', (e)=> 
-{
-//     // //prevent the window from reloading during a submit
+document.querySelector('#book-form').addEventListener('submit', (e) => {
+    //     // //prevent the window from reloading during a submit
     e.preventDefault();
     // get form values
     const title = document.querySelector('#title').value
@@ -85,10 +91,17 @@ document.querySelector('#book-form').addEventListener('submit', (e)=>
     //add book to UI
     UI.addBookToList(book);
 
+    //delete book
+
+
     //clear fields 
-    UI.clearFields()
+     UI.clearFields()
 });
 
 // call add to list method
 
-// ------------ EVENT: REMOVE A BOOK -------------
+// ------------ EVENT: REMOVE A BOOK ------------- // 
+
+document.querySelector('#book-list').addEventListener('click', (e) => {
+    UI.deleteBook(e.target)
+})
